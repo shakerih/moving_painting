@@ -123,10 +123,10 @@ def render(img,
 	if anti_aliasing:
 		pred_img = resize(pred_img,(w,h))
 
-	if verbose:
-		s =  "%08.3f seconds to render\n"%(time()-t)
-		s += "%08.3f error (0-255 scaled)\n"%(error)
-		s += "%08.3f min pixels considered\n"%(min_samples)
-		print(s)
+	# if verbose:
+	# 	s =  "%08.3f seconds to render\n"%(time()-t)
+	# 	s += "%08.3f error (0-255 scaled)\n"%(error)
+	# 	s += "%08.3f min pixels considered\n"%(min_samples)
+	# 	print(s)
 
 	return pred_img
