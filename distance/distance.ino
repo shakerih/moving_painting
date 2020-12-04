@@ -18,7 +18,7 @@ void loop() {
    inches = microsecondsToInches(duration);
    cm = microsecondsToCentimeters(duration);
    Serial.write(cm);
-   delay(100);
+   delay(1000);
 }
 
 long microsecondsToInches(long microseconds) {
