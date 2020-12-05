@@ -21,6 +21,9 @@ import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
 
 public class DriveQuickstart {
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
@@ -89,6 +92,30 @@ public class DriveQuickstart {
             // var result = req.Execute();
 
             String pageToken = null;
+            do {
+              FileList result = service.files().list()
+                  .setQ("mimeType='image/png' and name='frame2.png'")
+                  .setSpaces("drive")
+                  .setFields("nextPageToken, files(id, name)")
+                  .setPageToken(pageToken)
+                  .execute();
+              for (File file : result.getFiles()) {
+
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                service.files().get(file.getId())
+                .executeMediaAndDownloadTo(outputStream);
+
+                java.io.File newFile = new java.io.File("C:/Users/omlette/Documents/moving_painting/moving_painting/data/example_images/current2.png");    
+                OutputStream fos = new FileOutputStream(newFile);
+                outputStream.writeTo(fos);
+              }
+              pageToken = result.getNextPageToken();
+                    
+
+            } while (pageToken != null);
+            
+
+            pageToken = null;
             do {
               FileList result = service.files().list()
                   .setQ("mimeType='image/png' and name='frame.png'")

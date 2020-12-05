@@ -1,3 +1,4 @@
+
 /** TAKEN FROM https://github.com/GoToLoop/command/blob/patch-1/src/deadpixel/command/Command.java
  * ##library.name##
  * ##library.sentence##

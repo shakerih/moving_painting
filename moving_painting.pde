@@ -65,6 +65,12 @@ void draw() {
   }
 
   if (currtime % 2 == 0) {
+    
+    
+    photo=loadImage("data/example_images/current2.png");
+
+    photo.resize(width, 0);
+
     println(distance);
     cam.save("data/resources/base.png");
 
@@ -77,16 +83,12 @@ void draw() {
     println(cmd.command, ENTER);
 
     cmd.run();
-    photo=loadImage("data/example_images/current.png");
-
-    photo.resize(width, 0);
-
     //cmd = new Command ("echo %CD%");
     //cmd = new Command("cd C:/Users/omlette/Documents/moving_painting/moving_painting");
     //println(cmd.command, ENTER);
-    cmd = new Command("C:/Users/omlette/Documents/moving_painting/moving_painting/gradle C:/Users/omlette/Documents/moving_painting/moving_painting/run ");
+    cmd = new Command("C:/Users/omlette/Documents/moving_painting/moving_painting/upload.bat");
 
-    //println(cmd.command, ENTER);
+    println(cmd.command, ENTER);
     cmd.run();
   }
 }
